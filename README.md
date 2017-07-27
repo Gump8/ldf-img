@@ -1,2 +1,2 @@
-# ldf-img-canvas
+# ldf-img
 Compress Image for Upload
