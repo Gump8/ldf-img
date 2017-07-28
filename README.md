@@ -70,20 +70,27 @@
                 console.dir(data.Blob);
 
                 /*
+                * dataURL(base64) 数据
+                * */
+                console.log('dataURL(base64):',data.dataURL);
+
+                /*
                 * 图片的宽
                 * */
-                console.log('W',data.W);
+                console.log('W:',data.W);
 
                 /*
                 * 图片的高
                 * */
-                console.log('H',data.H);
+                console.log('H:',data.H);
 
                 /*
                 * 图片大小(KB)
+                * 小于1时为0
                 * */
-                console.log('KB',data.size);
+                console.log('KB:',data.size);
             });
     }
+</script>
 ```
 
