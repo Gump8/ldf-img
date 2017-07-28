@@ -16,7 +16,6 @@
 ```
 
 ```
-<!--此示例是原生的-->
 <body>
   <h1 id="click">Choose Img to Compress</h1>
 </body>
