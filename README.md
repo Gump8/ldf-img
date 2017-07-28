@@ -19,7 +19,7 @@ import {LDFimg} from './path/ldf-img-canvas.min'
 ```
 
 ### 原生js
-```
+```javascript
 <body>
   <h1 id="click">Choose Img to Compress</h1>
 </body>
