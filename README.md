@@ -11,14 +11,14 @@
 - 经测试, 兼容主流的iOS, Android版本、微信、支付宝(UC浏览器)
 
 ## Example  使用示例
-```
-亦可模块化 
-
+###使用自动化构建构建
+```javascript
 npm install ldf-img
 
 import {LDFimg} from './path/ldf-img-canvas.min'
 ```
 
+###原生js
 ```
 <body>
   <h1 id="click">Choose Img to Compress</h1>
