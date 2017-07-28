@@ -11,8 +11,8 @@
 - 经测试, 兼容主流的iOS, Android版本、微信、支付宝(UC浏览器)
 
 ## Example  使用示例
-### 使用自动化构建构建
-```javascript
+### 使用自动化构建工具
++```javascript
 npm install ldf-img
 
 import {LDFimg} from './path/ldf-img-canvas.min'
