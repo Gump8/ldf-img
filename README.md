@@ -12,8 +12,6 @@
 
 ## Example  使用示例
 ```javascript
-亦可模块化  
-
 npm install ldf-img
 
 import {LDFimg} from './path/ldf-img-canvas.min'
