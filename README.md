@@ -11,7 +11,7 @@
 - 经测试, 兼容主流的iOS, Android版本、微信、支付宝(UC浏览器)
 
 ## Example  使用示例
-```
+```javascript
 亦可模块化 
 
 npm install ldf-img
@@ -19,7 +19,7 @@ npm install ldf-img
 import {LDFimg} from './path/ldf-img-canvas.min'
 ```
 
-```
+```javascript
 <body>
   <h1 id="click">Choose Img to Compress</h1>
 </body>
