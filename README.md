@@ -22,7 +22,10 @@
     document.getElementById('click').onclick = function (e) {
         //实例化
         var demo = new LDFimg();
-        //初始化
+        /*
+        * 初始化
+        * demo.init({maxWH: 1024,quality: 600},function(data){})
+        * */
         demo.init({
                 /*
                 * maxWH:压缩图片的最大一边的目标值(默认1024)
