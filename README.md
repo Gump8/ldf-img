@@ -12,7 +12,7 @@
 
 ## Example  使用示例
 ### 使用自动化构建工具
-+```javascript
+```javascript
 npm install ldf-img
 
 import {LDFimg} from './path/ldf-img-canvas.min'
