@@ -12,7 +12,7 @@
 
 ## Example  使用示例
 ```javascript
-亦可模块化 
+亦可模块化  
 
 npm install ldf-img
 
