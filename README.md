@@ -12,7 +12,9 @@
 
 ## Example  使用示例
 ```
-<!--亦可模块化: import {LDFimg} from './path/ldf-img-canvas.min' -->
+亦可模块化 
+npm install ldf-img
+import {LDFimg} from './path/ldf-img-canvas.min'
 ```
 
 ```
