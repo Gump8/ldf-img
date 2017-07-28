@@ -13,7 +13,7 @@
 ## Example  使用示例
 ```
 <body>
-<h1 id="click">Choose Img to Compress</h1>
+  <h1 id="click">Choose Img to Compress</h1>
 </body>
 <script src="../build/ldf-img-canvas.min.js"></script>
 ```
