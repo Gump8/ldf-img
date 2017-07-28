@@ -13,7 +13,9 @@
 ## Example  使用示例
 ```
 亦可模块化 
+
 npm install ldf-img
+
 import {LDFimg} from './path/ldf-img-canvas.min'
 ```
 
@@ -22,8 +24,7 @@ import {LDFimg} from './path/ldf-img-canvas.min'
   <h1 id="click">Choose Img to Compress</h1>
 </body>
 <script src="../build/ldf-img-canvas.min.js"></script>
-```
-```
+
 <script>
     document.getElementById('click').onclick = function (e) {
         //实例化
