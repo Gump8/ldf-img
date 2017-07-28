@@ -12,6 +12,11 @@
 
 ## Example  使用示例
 ```
+<!--亦可模块化: import {LDFimg} from './path/ldf-img-canvas.min' -->
+```
+
+```
+<!--此示例是原生的-->
 <body>
   <h1 id="click">Choose Img to Compress</h1>
 </body>
