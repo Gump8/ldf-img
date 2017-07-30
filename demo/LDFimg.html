@@ -41,7 +41,7 @@
                 *    因为canvas画布的宽高有最小像素限制
                 * 4. 若不能达到目标值不可再进行压缩, 不然图片就不能看了
                 * */
-                quality: 1500000
+                quality: 1500
 
                 /*
                 * 若maxWH, quality 均大于源图, 返回源图数据
@@ -52,6 +52,7 @@
                 * FormData 数据
                 * 保留源图的属性: type、name
                 * 后端会进行类型验证, 这两个属性都是必须的
+                * 在源码写死了key是'picture' ( FormData.append('picture',xxx) )
                 * 为实现这个经历了重重障碍, 网上找到的结果是有各种问题的......
                 * */
                 console.dir(data.fileFormData);

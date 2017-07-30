@@ -40,7 +40,7 @@ import {LDFimg} from './path/ldf-img-canvas.min'
                 * 1. 若传入的值大于源图的最大一边, 不进行宽高压缩
                 * 2. 若传入的值小于源图的最大一边, 进行宽高的等比压缩, 保证图片不变形
                 * */
-                maxWH: 999999,
+                maxWH: 1024,
 
                 /*
                 * quality: 压缩图片体积大小(KB)的目标值(默认600KB)
@@ -50,7 +50,7 @@ import {LDFimg} from './path/ldf-img-canvas.min'
                 *    因为canvas画布的宽高有最小像素限制
                 * 4. 若不能达到目标值不可再进行压缩, 不然图片就不能看了
                 * */
-                quality: 1500000
+                quality: 600
 
                 /*
                 * 若maxWH, quality 均大于源图, 返回源图数据

@@ -12,7 +12,7 @@ module.exports = function (grunt) {
 		// },
 		uglify: {
 			options: {
-				banner: '/* <%= pkg.name %> | version: <%= pkg.version %> | author: <%= pkg.author %> | <%= grunt.template.today("yyyy-mm-dd") %> */'
+				banner: '/* \n * <%= pkg.name %> \n * version: <%= pkg.version %> \n * author: <%= pkg.author %> \n * <%= grunt.template.today("yyyy-mm-dd") %> \n */'
 			},
 			my_target: {
 				files: {
