@@ -29,32 +29,39 @@ import {LDFimg} from './path/ldf-img-canvas.min'
     document.getElementById('click').onclick = function (e) {
         //实例化
         var demo = new LDFimg();
+
         /*
         * 初始化
-        * demo.init({maxWH: 1024,quality: 600},function(data){})
+        * demo.init({maxWH: 1024,quality: 600,FDkey: 'picture'},function(data){})
         * */
         demo.init({
                 /*
-                * maxWH:压缩图片的最大一边的目标值(默认1024px)
+                * maxWH:压缩图片的最大一边的目标值(默认1024)
                 * 图片可能长大于宽, 宽大于长
-                * 1. 若传入的值大于源图的最大一边, 不进行宽高压缩
-                * 2. 若传入的值小于源图的最大一边, 进行宽高的等比压缩, 保证图片不变形
+                * 1. 若大于源图的最大一边, 不进行宽高压缩
+                * 2. 若小于源图的最大一边, 进行宽高的等比压缩, 保证图片不变形
                 * */
                 maxWH: 1024,
 
                 /*
-                * quality: 压缩图片体积大小(KB)的目标值(默认600KB)
+                * quality: 压缩图片体积大小的目标值(默认600)
                 * 1. 大于经过宽高压缩后不会再进行质量压缩
                 * 2. 经过宽高压缩后的大小可能远小于目标值
                 * 3. 若目标值过小, 可能无法压缩到目标值的大小,
                 *    因为canvas画布的宽高有最小像素限制
-                * 4. 若不能达到目标值不可再进行压缩, 不然图片就不能看了
+                * 4. 若不能达到目标值不可再进行压缩, 不然图片就无法看了
                 * */
-                quality: 600
+                quality: 600,
 
                 /*
                 * 若maxWH, quality 均大于源图, 返回源图数据
                 * */
+
+                /*
+                * FDkey: 返回的FormData数据的key (默认'picture')
+                * 此属性与后端验证有关,须与后端代码相结合设置此属性值
+                * */
+                FDkey: '',
             },
             function (data) {
                 /*
