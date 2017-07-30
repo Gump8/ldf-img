@@ -24,7 +24,8 @@
         * */
         options: {
             maxWH: 1024,
-            quality: 600
+            quality: 600,
+            FDkey: 'picture'
         },
         /*
         * 最终返回的数据
@@ -58,6 +59,13 @@
             }
             if (!!params.quality) {
                 self.options.quality = params.quality;
+            }
+            if (!!params.FDkey) {
+                if (typeof params.FDkey !== 'string') {
+                    alert('FDkey应为字符!');
+                    return;
+                }
+                self.options.FDkey = params.FDkey;
             }
 
             console.log(self.options);
@@ -107,6 +115,15 @@
                     });
 
                 };
+
+                /*
+                * 不管成功或失败都会执行
+                * 解决若上传失败,再次选择同一张图时无法触发change事件问题
+                * */
+                readURL.onloadend = function () {
+                    self.removeDom();
+                    self.createDom();
+                }
             });
         },
         /*
@@ -322,15 +339,16 @@
             let self = this;
 
             let fd = new FormData();
+            let FDkey = self.options.FDkey;
             if (!!blob) {
 
-                fd.append("picture", blob, fileName);
+                fd.append(FDkey, blob, fileName);
                 return fd;
 
             } else {
 
                 let blobData = self.dataURLtoBlob(dataURL, fileName);
-                fd.append("picture", blobData, fileName);
+                fd.append(FDkey, blobData, fileName);
                 return fd;
 
             }

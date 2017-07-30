@@ -3,7 +3,7 @@ module.exports = function (grunt) {
 		pkg: grunt.file.readJSON('package.json'),
 		// watch: {
 		// 	build: {
-		// 		files: ['./build/capricorncd-image-process.js'],
+		// 		files: ['./build/ldf-img.js'],
 		// 		tasks: ['uglify'],
 		// 		options: {
 		// 			spawn: false
@@ -16,7 +16,7 @@ module.exports = function (grunt) {
 			},
 			my_target: {
 				files: {
-					'./build/ldf-img-canvas.min.js': ['./build/ldf-img-canvas.js']
+					'./build/ldf-img.min.js': ['./build/ldf-img.js']
 				}
 			}
 		}

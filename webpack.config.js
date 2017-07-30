@@ -4,7 +4,7 @@ var webpack = require('webpack');
 
 module.exports = {
     entry: {
-        'ldf-img-canvas': './src/ldf-img-canvas.js'
+        'ldf-img': './src/ldf-img.js'
     },
     output: {
         path: __dirname + '/build',
