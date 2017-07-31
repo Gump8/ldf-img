@@ -32,7 +32,7 @@ import {LDFimg} from './path/ldf-img-canvas.min'
 
         /*
         * 初始化
-        * demo.init({maxWH: 1024,quality: 600,FDkey: 'picture'},function(data){})
+        * demo.init({maxWH: 1024,quality: 600,FDkey: 'picture'},function(imgData){})
         * */
         demo.init({
                 /*
@@ -61,43 +61,43 @@ import {LDFimg} from './path/ldf-img-canvas.min'
                 * FDkey: 返回的FormData数据的key (默认'picture')
                 * 此属性与后端验证有关,须与后端代码相结合设置此属性值
                 * */
-                FDkey: '',
+                FDkey: 'picture',
             },
-            function (data) {
+            function (imgData) {
                 /*
                 * FormData 数据
                 * 保留源图的属性: type、name
                 * 后端会进行类型验证, 这两个属性都是必须的
                 * 为实现这个经历了重重障碍, 网上找到的结果是有各种问题的......
                 * */
-                console.dir(data.fileFormData);
+                console.dir(imgData.fileFormData);
 
                 /*
                 * Blob 数据
                 * 保留源图的属性: type
                 * */
-                console.dir(data.Blob);
+                console.dir(imgData.Blob);
 
                 /*
                 * dataURL(base64) 数据
                 * */
-                console.log('dataURL(base64):',data.dataURL);
+                console.log('dataURL(base64):',imgData.dataURL);
 
                 /*
                 * 图片的宽
                 * */
-                console.log('W:',data.W);
+                console.log('W:',imgData.W);
 
                 /*
                 * 图片的高
                 * */
-                console.log('H:',data.H);
+                console.log('H:',imgData.H);
 
                 /*
                 * 图片大小(KB)
                 * 小于1时为0
                 * */
-                console.log('KB:',data.size);
+                console.log('KB:',imgData.size);
             });
     }
 </script>
