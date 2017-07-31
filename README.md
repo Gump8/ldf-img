@@ -15,15 +15,15 @@
 ```javascript
 npm install ldf-img
 
-import {LDFimg} from './path/ldf-img-canvas.min'
+import {LDFimg} from './path/ldf-img.min'
 ```
 
 ### 原生js
 ```javascript
 <body>
-  <h1 id="click">Choose Img to Compress</h1>
+  <h2 id="click">Click Me</h2>
 </body>
-<script src="../build/ldf-img-canvas.min.js"></script>
+<script src="../build/ldf-img.js"></script>
 
 <script>
     document.getElementById('click').onclick = function (e) {
