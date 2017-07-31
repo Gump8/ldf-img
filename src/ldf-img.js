@@ -1,8 +1,8 @@
-/**
- * ldf-img-canvas.js
- * @author ldf
- * github: https://github.com/Gump8/ldf-img
- */
+/*
+ * ldf-img
+ * @author: ldf
+ * githup: https://github.com/Gump8/ldf-img.git
+ * */
 
 // require('core-js(/library)/fn/object/assign');
 
