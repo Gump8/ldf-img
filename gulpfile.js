@@ -50,7 +50,7 @@ gulp.task('browser-sync',function () {
         port:40003,
 
         //代理  npm install browser-sync
-        proxy:'http://localhost:83/project/ldf-img-canvas/demo/LDFimg.html',
+        proxy:'http://localhost:83/project/ldf-img/demo/LDFimg.html',
 
         //监听文件,改变后自动刷新 (方法一)
         // files:['./src/html/*.html','./src/js/*.js','./src/php/*.php']

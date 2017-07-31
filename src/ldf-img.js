@@ -239,7 +239,7 @@
                 let newImgSize = self.fileSizeKB(newImgData);
 
                 //保存最终返回的数据
-                let blob = self.dataURLtoBlob(newImgData, fileName);
+                let blob = self.dataURLtoBlob(newImgData, fileType);
                 console.log(blob)
                 let formData = self.toFileFormData('', blob, fileName);
 
@@ -309,7 +309,7 @@
         /*
         * 转为Blob
         * */
-        dataURLtoBlob: function (dataURL, fileType, fileName) {
+        dataURLtoBlob: function (dataURL, fileType) {
             let self = this;
 
             let byteString = atob(dataURL.split(',')[1]);
@@ -322,7 +322,7 @@
             if (fileType) {
                 mimeString = fileType;
             }
-            return new Blob([ab], {type: mimeString, name: fileName, lastModifiedDate: new Date()});
+            return new Blob([ab], {type: mimeString,lastModifiedDate: new Date()});
         },
         /*
         * 转换数据类型为:FormData
@@ -347,7 +347,7 @@
 
             } else {
 
-                let blobData = self.dataURLtoBlob(dataURL, fileName);
+                let blobData = self.dataURLtoBlob(dataURL, fileType);
                 fd.append(FDkey, blobData, fileName);
                 return fd;
 
