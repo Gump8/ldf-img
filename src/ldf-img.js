@@ -1,4 +1,4 @@
-/*
+ /*
  * ldf-img
  * @author: ldf
  * githup: https://github.com/Gump8/ldf-img.git
@@ -12,9 +12,9 @@
         let self = this;
 
         /*
-         * 实例化时须确保删除掉前一个实例化产生的dom结构
-         * 此插件只获取压缩的图片数据,与上传步骤完全分离
-         * */
+        * 实例化时须确保删除掉前一个实例化产生的dom结构
+        * 此插件只获取压缩的图片数据,与上传步骤完全分离
+        * */
         self.removeDom();
         self.createDom();
     };
@@ -24,7 +24,7 @@
         * */
         options: {
             maxWH: 1024,
-            quality: 600,
+            quality: 200,
             FDkey: 'picture'
         },
         /*
@@ -71,13 +71,14 @@
             console.log(self.options);
             console.log(params);
 
-            let inputFile = document.getElementById('inputfile');
+            let inputFile = document.getElementById('ldf-input-file');
 
             inputFile.click();
             inputFile.addEventListener('change', function (e) {
                 let files = e.target.files;
                 let file = files[0];
-                let fileType = file.type;
+                //gif图会自动转换为png
+                let fileType = file.type.replace('gif', 'png');
                 let srcSizeKB = Math.round(file.size / 1024);
                 let fileName = file.name;
 
@@ -132,11 +133,20 @@
         * */
         createDom: function () {
             let self = this;
+
             let dom = document.body || document.documentElement;
-            let inDom = `<div class="dom-container" style="display: none">
-                            <canvas id="canvas"></canvas>
-                            <input id="inputfile" type="file" accept="image/*">
+            let inDom = `<div class="ldf-dom-container" style="display: none">
+                            <canvas id="ldf-canvas"></canvas>
+                            <input id="ldf-input-file" type="file" accept="image/*">
                          </div>`;
+
+            if(self.isChromePC()){
+                inDom = `<div class="ldf-dom-container" style="display: none">
+                            <canvas id="ldf-canvas"></canvas>
+                            <input id="ldf-input-file" type="file" accept="image/gif,image/png,image/jpeg,image/jpg,image/bmp">
+                         </div>`;
+            }
+
             dom.insertAdjacentHTML('beforeEnd', inDom);
         },
         /*
@@ -144,10 +154,22 @@
         * 此插件只获取压缩的图片数据,与上传的步骤完全分离
         * */
         removeDom: function () {
-            let dom = document.getElementsByClassName('dom-container');
+            let dom = document.getElementsByClassName('ldf-dom-container');
             for (let i = 0; i < dom.length; i++) {
                 dom[i].parentNode.removeChild(dom[i]);
             }
+        },
+        /*
+        * chrome 64 位版本中会出现选择文件慢问题
+        * */
+        isChromePC: function () {
+            let self = this;
+
+            let agent = window.navigator.userAgent;
+            if( ( /Windows NT/.test(agent) || /Macintosh/.test(agent) ) && /Chrome/.test(agent)){
+                return true;
+            }
+            return false;
         },
         /*
         * 压缩图片的宽高
@@ -165,7 +187,7 @@
                 let _dWH = self.dWH(srcW, srcH, self.options.maxWH);
                 console.log('dWH', _dWH)
 
-                let canvas = document.getElementById('canvas');
+                let canvas = document.getElementById('ldf-canvas');
                 let context = canvas.getContext("2d");
                 canvas.width = _dWH.width;
                 canvas.height = _dWH.height;
@@ -173,7 +195,6 @@
                 //清空后, 重写画布
                 context.clearRect(0, 0, canvas.width, canvas.height);
                 context.drawImage(img, 0, 0, canvas.width, canvas.height);
-
 
                 let newImgData = canvas.toDataURL(fileType, 1);
 
@@ -222,7 +243,7 @@
 
                 let _dWH = self.dWH(srcW, srcH, self.options.maxWH);
 
-                let canvas = document.getElementById('canvas');
+                let canvas = document.getElementById('ldf-canvas');
                 let context = canvas.getContext("2d");
                 canvas.width = _dWH.width;
                 canvas.height = _dWH.height;
@@ -322,7 +343,7 @@
             if (fileType) {
                 mimeString = fileType;
             }
-            return new Blob([ab], {type: mimeString,lastModifiedDate: new Date()});
+            return new Blob([ab], {type: mimeString, lastModifiedDate: new Date()});
         },
         /*
         * 转换数据类型为:FormData
@@ -361,4 +382,4 @@
 
 })(window);
 
-export {LDFimg};
+module.export = LDFimg;

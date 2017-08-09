@@ -23,7 +23,7 @@ import {LDFimg} from './path/ldf-img.min'
 <body>
   <h2 id="click">Click Me</h2>
 </body>
-<script src="../build/ldf-img.js"></script>
+<script src="../build/ldf-img.min.js"></script>
 
 <script>
     document.getElementById('click').onclick = function (e) {
@@ -44,14 +44,14 @@ import {LDFimg} from './path/ldf-img.min'
                 maxWH: 1024,
 
                 /*
-                * quality: 压缩图片体积大小的目标值(默认600)
+                * quality: 压缩图片体积大小的目标值(默认200(kb))
                 * 1. 大于经过宽高压缩后不会再进行质量压缩
                 * 2. 经过宽高压缩后的大小可能远小于目标值
                 * 3. 若目标值过小, 可能无法压缩到目标值的大小,
                 *    因为canvas画布的宽高有最小像素限制
                 * 4. 若不能达到目标值不可再进行压缩, 不然图片就无法看了
                 * */
-                quality: 600,
+                quality: 200,
 
                 /*
                 * 若maxWH, quality 均大于源图, 返回源图数据
