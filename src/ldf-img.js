@@ -36,7 +36,8 @@
             fileFormData: '',
             W: 0,
             H: 0,
-            size: 0
+            name: '',
+            size: 0,
         },
         /*
         * 初始化函数
@@ -82,6 +83,8 @@
                 let srcSizeKB = Math.round(file.size / 1024);
                 let fileName = file.name;
 
+                //保存文件名
+                self.backData.name = fileName;
                 //保存文件大小数据
                 self.backData.size = srcSizeKB;
                 console.log('srcSizeKB', srcSizeKB);
