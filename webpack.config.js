@@ -10,7 +10,7 @@ module.exports = {
         path: __dirname + '/build',
         filename: '[name].js',
         // 浏览器环境在window下注册LDFimg
-        // library: 'LDFimg',
+        library: 'LDFimg',
         // 同时支持AMD/CMD
         libraryTarget: 'umd'
     },
