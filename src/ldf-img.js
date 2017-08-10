@@ -382,4 +382,5 @@
 
 })(window);
 
-module.export = LDFimg;
+module.exports = LDFimg;
+//  export { LDFimg };

@@ -1,6 +1,6 @@
 {
   "name": "ldf-img",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "\u0016Image Compress for upload (html5 + canvas)",
   "main": "Gruntfile.js",
   "dependencies": {},
