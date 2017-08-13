@@ -209,8 +209,8 @@
                 let compressSizeRate = self.qualityRate(newImgData, self.options.quality);
 
                 //保存最终返回的图像的宽高
-                self.backData.H = _dWH.width;
-                self.backData.W = _dWH.height;
+                self.backData.W = _dWH.width;
+                self.backData.H = _dWH.height;
                 self.backData.size = newImgSize;
 
                 //大于 1 时, 不再进行质量压缩, 保存最终返回的数据
@@ -224,6 +224,7 @@
                     self.backData.Blob = blob;
                     self.backData.fileFormData = formData;
                 }
+
                 typeof callback === 'function' && callback({
                     compressSizeRate: compressSizeRate,
                     newImgData: newImgData
