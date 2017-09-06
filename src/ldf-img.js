@@ -102,8 +102,8 @@
                     console.log('源大小', self.fileSizeKB(dataURL));
 
                     self.WHcompress(fileType, fileName, dataURL, self.options.quality, function (data) {
-                        console.log('clllllll')
-                        if (data.compressSizeRate < 1) {
+
+                        if (data.compressSizeRate <0.92) {
                             self.sizeCompress(fileType, fileName, data.newImgData, data.compressSizeRate, function () {
                                 /*
                                 * 质量压缩只能压一次
@@ -112,7 +112,7 @@
                                 typeof callback === 'function' && callback(self.backData);
                             });
                         } else {
-                            console.log('clllllll')
+
                             typeof callback === 'function' && callback(self.backData);
 
                         }
@@ -141,13 +141,13 @@
             let inDom = `<div class="ldf-dom-container" style="display: none">
                             <canvas id="ldf-canvas"></canvas>
                             <input id="ldf-input-file" type="file" accept="image/*">
-                         </div>`;
+                         </div>`.trim();
 
             if(self.isChromePC()){
                 inDom = `<div class="ldf-dom-container" style="display: none">
                             <canvas id="ldf-canvas"></canvas>
                             <input id="ldf-input-file" type="file" accept="image/gif,image/png,image/jpeg,image/jpg,image/bmp">
-                         </div>`;
+                         </div>`.trim();
             }
 
             dom.insertAdjacentHTML('beforeEnd', inDom);
@@ -199,7 +199,7 @@
                 context.clearRect(0, 0, canvas.width, canvas.height);
                 context.drawImage(img, 0, 0, canvas.width, canvas.height);
 
-                let newImgData = canvas.toDataURL(fileType, 1);
+                let newImgData = canvas.toDataURL(fileType,0.92);
 
                 //压缩宽高后的图像大小
                 let newImgSize = self.fileSizeKB(newImgData);
@@ -213,8 +213,8 @@
                 self.backData.H = _dWH.height;
                 self.backData.size = newImgSize;
 
-                //大于 1 时, 不再进行质量压缩, 保存最终返回的数据
-                if (compressSizeRate >= 1) {
+                //大于0.92 时, 不再进行质量压缩, 保存最终返回的数据
+                if (compressSizeRate >=0.92) {
                     let blob = self.dataURLtoBlob(newImgData, fileType);
                     console.log(blob);
                     let formData = self.toFileFormData('', blob, fileName);

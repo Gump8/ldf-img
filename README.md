@@ -15,6 +15,9 @@
 ```javascript
 npm install ldf-img
 
+方法一 (推荐)
+require('../path/ldf-img.min.js');
+方法二 (可能出现 udefined )
 import {LDFimg} from './path/ldf-img.min'
 ```
 
