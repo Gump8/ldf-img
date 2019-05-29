@@ -1,5 +1,5 @@
 # 图像压缩, 上传前处理
-  Image Compress for Upload
+  Image Compress for Upload 图片压缩
 
 ## Features  实现功能特点
 
